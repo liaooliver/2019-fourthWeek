@@ -1,0 +1,50 @@
+.step{
+    width: 517px;
+    height: 78px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    &__checkPoint{
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        cursor: pointer;
+        &--active{
+            background:#FFBC00;
+        }
+        &--pending{
+            background:#EFEFEF;
+        }
+    }
+    &__line{
+        position: absolute;
+        width: 45%;
+        height: 10px;
+        z-index: -1;
+        top: 18px;
+        &--right{
+            right: 25px;
+        }
+        &--left{
+            left: 25px;
+        }
+        &--active{
+            background:#FFBC00;
+        }
+        &--pending{
+            background:#EFEFEF;
+        }
+    }
+    &__fillUp{
+        bottom: 10px;
+        left: -7px;
+    }
+    &__way{
+        left: 42%;
+        bottom: 10px;
+    }
+    &__payment{
+        right: -8px;
+        bottom: 10px;
+    }
+}
