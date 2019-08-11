@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Basic } from '../../models/basic';
 import { StateControlService } from '../../services/stateControl.service';
 
 @Component({
@@ -9,36 +10,47 @@ import { StateControlService } from '../../services/stateControl.service';
 })
 export class BasicComponent implements OnInit {
 
-  public attend = {
-    audit: 0,
-    child: 0
-  }
-  constructor(
-    private _router: Router,
-    private _state: StateControlService
-  ) { }
+  public basic: Basic;
+  public isValid = false;
+  public validAttend = false;
 
-  ngOnInit() {
+  constructor( 
+    public _state: StateControlService,
+    public _router: Router
+  ) { 
+    this.basic = new Basic('','','','',0,0,'',false, '');
   }
 
-  decrease(type) {
-    let auditCount = this.attend.audit;
-    let childCount = this.attend.child;
+  ngOnInit() {}
+
+  decrease(type, e) {
+    e.preventDefault();
+    e.stopPropagation();
+    let auditCount = this.basic.audit;
+    let childCount = this.basic.child;
     if (type === 'audit') {
-      this.attend.audit = auditCount > 0 ? auditCount-1 : auditCount;
+      this.basic.audit = auditCount > 0 ? auditCount-1 : auditCount;
     } else if (type = 'child') { 
-      this.attend.child = childCount > 0 ? childCount-1 : childCount;
+      this.basic.child = childCount > 0 ? childCount-1 : childCount;
     }
   }
-  increase(type) {
+  increase(type, e) {
     if (type === 'audit') {
-      this.attend.audit++;
+      this.basic.audit++;
     } else if (type = 'child') {
-      this.attend.child++;
+      this.basic.child++;
     }
   }
-  next(){
-    this._state.step.value.way = true
-    this._router.navigate([`/way`])
+  next(basicForm){
+    console.log(basicForm.valid)
+    console.log(basicForm)
+    if (basicForm.valid){
+      this._state.step.value.way = true
+      this._router.navigate([`/way`])
+    }else{
+      let sum = this.basic.audit + this.basic.child;
+      if(sum === 0) this.validAttend = true;
+      this.isValid = true;
+    }    
   }
 }

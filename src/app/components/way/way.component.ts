@@ -11,26 +11,26 @@ export class WayComponent implements OnInit {
 
   public paywayList = [
     {
-      src:"/assets/Image 2/Image 2.png",
+      src:"./assets/Image 2/Image 2.png",
       text:"超商代碼 - 7-11",
       isSelected:false
     },
     {
-      src: "/assets/Image 3/Image 3.png",
+      src: "./assets/Image 3/Image 3.png",
       text: "ATM轉帳 台新銀行",
       isSelected: false
     },
     {
-      src: "/assets/Image 4/Image 4.png",
+      src: "./assets/Image 4/Image 4.png",
       text: "街口支付",
       isSelected: false
     }, {
-      src: "/assets/crditcard.png",
+      src: "./assets/crditcard.png",
       text: "信用卡 - VISA",
       isSelected: false
     },
     {
-      src: "/assets/Image 5/Image 5.png",
+      src: "./assets/Image 5/Image 5.png",
       text: "LINE Pay",
       isSelected: false
     }
