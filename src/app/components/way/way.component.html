@@ -1,0 +1,25 @@
+<form class="form w100">
+    <div class="form__title d-flex">
+        <span class="form__title--No">Step.2</span>
+        <span class="form__title--text ml-11">選擇付款方式</span>
+    </div>
+    <div class="form__content">
+        <div class="form__main">
+            <div class="form__card" *ngFor="let item of paywayList;  index as i;">
+                <label class="form__card--content" [ngClass]="{'form__card--selected': item.isSelected}">
+                    <input type="radio" name="way" (change)="selectWay(i)">
+                    <img [src]=item.src width=60>
+                    <p>{{item.text}}</p>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form__footer">
+        <div class="form__btnGroup d-flex w100">
+            <span class="d-center">總價 : 1688 元</span>
+            <span class="form__btnGroup--space"></span>
+            <button class="form__button form__button--cancel" (click)="last()">上一步</button>
+            <button class="form__button form__button--next ml-33" (click)="next()">下一步</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,41 @@
+<form class="form w100">
+    <div class="form__title d-flex">
+        <span class="form__title--No">Step.3</span>
+        <span class="form__title--text ml-11">選擇付款方式</span>
+    </div>
+    <div class="form__content">
+        <div class="form__fill w100 mb-22">
+            <label class="mb-11">持卡人</label>
+            <input type="text">
+        </div>
+        <div class="form__fill mb-22">
+            <label class="mb-11">卡號</label>
+            <div class="form__number">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+            </div>
+        </div>
+        <div class="form__fill w50 mb-22">
+            <label class="mb-11">到期日期</label>
+            <div class="form__date">
+                <input type="text">
+                <input type="text">
+            </div>
+        </div>
+        <div class="form__fill w25 mb-22">
+            <label class="mb-11">CVV（卡片背面末三碼</label>
+            <div class="form__cvv">
+                <input type="text">
+            </div>
+        </div>
+    </div>
+    <div class="form__footer">
+        <div class="form__btnGroup d-flex w100">
+            <span class="form__btnGroup--space"></span>
+            <button class="form__button form__button--cancel">取消</button>
+            <button class="form__button form__button--next ml-33" routerLink="/way">下一步</button>
+        </div>
+    </div>
+</form>

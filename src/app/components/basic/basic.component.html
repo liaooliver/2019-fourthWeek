@@ -1,0 +1,66 @@
+<form class="form w100">
+  <div class="form__title d-flex">
+    <span class="form__title--No">Step.1</span>
+    <span class="form__title--text ml-11">填寫聯絡人資訊</span>
+  </div>
+  <div class="form__content">
+    <div class="form__main">
+      <div class="form__fill w50 mb-22 pr-25">
+        <label class="mb-11">姓名</label>
+        <input type="text">
+      </div>
+      <div class="form__fill w50 mb-22 pl-25">
+        <label class="mb-11">行動電話</label>
+        <input type="text">
+      </div>
+      <div class="form__fill w50 mb-22 pr-25">
+        <label class="mb-11">電子郵件</label>
+        <input type="text">
+      </div>
+      <div class="form__fill w50 mb-22 pl-25">
+        <label class="mb-11">活動日期</label>
+        <input type="text">
+      </div>
+      <div class="form__fill w50 mb-22 pr-25">
+        <label class="mb-11">參加人數</label>
+        <div class="form__count">
+          <div class="count">
+            <span>成人</span>
+            <div>
+              <button (click)="decrease('audit')">-</button>
+              <input readonly type="text" [value]="attend.audit">
+              <button (click)="increase('audit')">+</button>
+            </div>
+          </div>
+          <div class="count">
+            <span>小孩</span>
+            <div>
+              <button (click)="decrease('child')">-</button>
+              <input readonly type="text" [value]="attend.child">
+              <button (click)="increase('child')">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form__fill w50 mb-22 pl-25">
+        <label class="mb-11">優惠代碼</label>
+        <input type="text">
+      </div>
+    </div>
+    <div class="remark"></div>
+  </div>
+  <div class="form__footer">
+    <div class="form__checkRead mb-22">
+      <label class="d-flex">
+        <span class="form__checkRead--checkbox"><i class="fas fa-check"></i></span>
+        <input type="checkbox">
+        <p class="form__checkRead--text">我已閱讀並同意<a class="form__checkRead--link">票券訂購暨使用須知</a>內容所有條款</p>
+      </label>
+    </div>
+    <div class="form__btnGroup d-flex w100">
+      <span class="form__btnGroup--space"></span>
+      <button class="form__button form__button--cancel">取消</button>
+      <button class="form__button form__button--next ml-33" (click)="next()">下一步</button>
+    </div>
+  </div>
+</form>

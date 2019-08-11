@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+
+// init
+@import './assets/scss/reset';
+@import './assets/scss/vendor.scss';
+@import './assets/scss/variable.scss';
+
+// full page layout
+@import './assets/scss/layout.scss';
+
+// component
+@import './assets/scss/components/button.scss';
+@import './assets/scss/components/block.scss';
+@import './assets/scss/components/count.scss';
+@import './assets/scss/components/form.scss';
+@import './assets/scss/components/order.scss';
+@import './assets/scss/components/progerss.scss';
+@import './assets/scss/components/step.scss';
+
+// utils
+@import './assets/scss/utils.scss';

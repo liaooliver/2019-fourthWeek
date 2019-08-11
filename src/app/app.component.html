@@ -1,0 +1,45 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<header class="header d-center w100">
+  <div class="step">
+    <div class="step__checkPoint step__checkPoint--active d-center">
+      <i class="far fa-user"></i>
+    </div>
+    <div class="step__line step__line--left"
+      [ngClass]="{'step__checkPoint--pending': !step$.way, 'step__checkPoint--active': step$.way}"></div>
+    <div class="step__checkPoint d-center"
+      [ngClass]="{'step__checkPoint--pending': !step$.way, 'step__checkPoint--active': step$.way}">
+      <i  class="fas fa-dollar-sign"></i>
+    </div>
+    <div class="step__line step__line--right" 
+      [ngClass]="{'step__checkPoint--pending': !step$.payment, 'step__checkPoint--active': step$.payment}"></div>
+    <div class="step__checkPoint d-center" 
+      [ngClass]="{'step__checkPoint--pending': !step$.payment, 'step__checkPoint--active': step$.payment}">
+      <i class="far fa-credit-card"></i>
+    </div>
+    <span class="step__fillUp pos-absolute">填寫資料</span>
+    <span class="step__way pos-absolute">選擇付款方式</span>
+    <span class="step__payment pos-absolute">前往付款</span>
+  </div>
+</header>
+<content class="content w100">
+  <div class="col-4">
+    <div class="content__order content__order--bgColor borRadius-11">
+      <img src="../../../assets/Image 1/Image 1.png" width="100%">
+      <h5>玩具解剖展｜夜間加場：紐約街頭潮 玩派對 Special Guest DJ RayRay</h5>
+      <p>2019-08-09(五) 19:30 ~ 21:00 (GMT+8) 台灣台北市中正區八德路一段1號 訂單編號：1908020833432821107310</p>
+      <div>
+        <span>總價：</span>
+        <span></span>
+      </div>
+      <div class="content__hint content__hint--style d-center">
+        訂單資訊
+      </div>
+    </div>
+  </div>
+  <div class="col-8 ml-auto">
+    <div class="content__main content__main--bgColor borRadius-11">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</content>
