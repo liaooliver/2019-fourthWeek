@@ -7,7 +7,7 @@
         <div class="form__main">
             <div class="form__card" *ngFor="let item of paywayList;  index as i;">
                 <label class="form__card--content" [ngClass]="{'form__card--selected': item.isSelected}">
-                    <input type="radio" name="way" (change)="selectWay(i)">
+                    <input type="radio" name="way" (change)="selectWay(i, $event)">
                     <img [src]=item.src width=60>
                     <p>{{item.text}}</p>
                 </label>
@@ -15,6 +15,7 @@
         </div>
     </div>
     <div class="form__footer">
+        <span *ngIf="error">請選擇付款方式</span>
         <div class="form__btnGroup d-flex w100">
             <span class="d-center">總價 : 1688 元</span>
             <span class="form__btnGroup--space"></span>

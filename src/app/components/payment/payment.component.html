@@ -1,33 +1,49 @@
-<form class="form w100">
+<form class="form w100" #paymentForm="ngForm" (ngSubmit)="finished(paymentForm)">
     <div class="form__title d-flex">
         <span class="form__title--No">Step.3</span>
-        <span class="form__title--text ml-11">選擇付款方式</span>
+        <span class="form__title--text ml-11">填寫付款資訊</span>
     </div>
     <div class="form__content">
         <div class="form__fill w100 mb-22">
-            <label class="mb-11">持卡人</label>
-            <input type="text">
+            <label class="mb-11">
+                持卡人
+                <span *ngIf="holder.errors">
+                    <span *ngIf="holder.errors && holder.errors.required">持卡人不得為空</span>
+                </span>
+            </label>
+            <input type="text" required [(ngModel)]="payment.holder" name="holder" #holder="ngModel">
         </div>
         <div class="form__fill mb-22">
-            <label class="mb-11">卡號</label>
+            <label class="mb-11">
+                卡號
+                <span *ngIf="card_number4.errors">
+                    <span *ngIf="card_number4.errors && card_number4.errors.required">請輸入卡號</span>
+                </span>
+            </label>
             <div class="form__number">
-                <input type="text">
-                <input type="text">
-                <input type="text">
-                <input type="text">
+                <input type="text" required maxlength="4" pattern="\d{4}" (input)="handleFocus($event)" [(ngModel)]="payment.card_number1" name="card_number1" #card_number1="ngModel">
+                <input type="text" required maxlength="4" pattern="\d{4}" (input)="handleFocus($event)" [(ngModel)]="payment.card_number2" name="card_number2" #card_number2="ngModel">
+                <input type="text" required maxlength="4" pattern="\d{4}" (input)="handleFocus($event)" [(ngModel)]="payment.card_number3" name="card_number3" #card_number3="ngModel">
+                <input type="text" required maxlength="4" pattern="\d{4}" [(ngModel)]="payment.card_number4" name="card_number4" #card_number4="ngModel">
             </div>
         </div>
         <div class="form__fill w50 mb-22">
-            <label class="mb-11">到期日期</label>
+            <label class="mb-11">到期日</label>
             <div class="form__date">
-                <input type="text">
-                <input type="text">
+                <input type="text" maxlength="2" minlength="1">
+                <input type="text" maxlength="2" minlength="2">
             </div>
         </div>
-        <div class="form__fill w25 mb-22">
-            <label class="mb-11">CVV（卡片背面末三碼</label>
-            <div class="form__cvv">
-                <input type="text">
+        <div class="form__fill mb-22">
+            <label class="mb-11">
+                CVV(卡片背面末三碼)
+                <span *ngIf="cvv.errors">
+                    <span *ngIf="cvv.errors && cvv.errors.pattern">請輸入卡片正確 CVV</span>
+                    <span *ngIf="cvv.errors && cvv.errors.required">CVV 不得為空</span>
+                </span>
+            </label>
+            <div class="form__cvv w25">
+                <input type="text" required maxlength="3" pattern="\d{3}" [(ngModel)]="payment.cvv" name="cvv" #cvv="ngModel">
             </div>
         </div>
     </div>
@@ -35,7 +51,7 @@
         <div class="form__btnGroup d-flex w100">
             <span class="form__btnGroup--space"></span>
             <button class="form__button form__button--cancel">取消</button>
-            <button class="form__button form__button--next ml-33" routerLink="/way">下一步</button>
+            <button class="form__button form__button--next ml-33">下一步</button>
         </div>
     </div>
 </form>

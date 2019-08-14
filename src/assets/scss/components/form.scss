@@ -15,7 +15,9 @@
 
     }
     &__footer{
-
+        > span{
+            color: #ff0000;
+        }
     }
     &__main{
         display: flex;
@@ -26,7 +28,7 @@
         flex-direction: column;
         label{
             font-size: 16px;
-            &::after{
+            &::before{
                 content:" *";
                 color:#FF0000;
             }

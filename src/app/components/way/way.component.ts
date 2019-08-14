@@ -9,6 +9,8 @@ import { StateControlService } from '../../services/stateControl.service';
 })
 export class WayComponent implements OnInit {
 
+  public error = false;
+  public isSelected = false;
   public paywayList = [
     {
       src:"./assets/Image 2/Image 2.png",
@@ -44,9 +46,12 @@ export class WayComponent implements OnInit {
     
   }
 
-  selectWay(index){
+  selectWay(index, event){
     this.paywayList.forEach(item => item.isSelected = false)
     this.paywayList[index].isSelected = true;
+    if(event.target.value){
+      this.isSelected = true;
+    }
   }
 
   last(){
@@ -54,9 +59,15 @@ export class WayComponent implements OnInit {
     this._route.navigate([`/basic`])
   }
 
+
   next(){
-    this._state.step.value.payment = true;
-    this._route.navigate([`/payment`])
+    if (this.isSelected){
+      this._state.step.value.way = true
+      this._state.step.value.payment = true;
+      this._route.navigate([`/payment`])
+    }else{
+      this.error = true;
+    }
   }
 
 }
